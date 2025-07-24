@@ -22,7 +22,7 @@ A powerful and flexible command-line tool written in Go that generates all possi
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/subperm.git
+git clone https://github.com/Soufiane-coder/subperm.git
 cd subperm
 
 # Build the binary
@@ -37,7 +37,7 @@ sudo mv subperm /usr/local/bin/
 
 ```bash
 # Download and install directly
-go install github.com/yourusername/subperm@latest
+go install github.com/Soufiane-coder/subperm@latest
 ```
 
 ## Usage
@@ -239,7 +239,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/subperm.git
+git clone https://github.com/Soufiane-coder/subperm.git
 cd subperm
 
 # Install dependencies
