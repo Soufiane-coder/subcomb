@@ -12,10 +12,10 @@ import (
 
 const (
 	version = "1.0.0"
-	usage   = `subperm - Subdomain Permutation Generator
+	usage   = `subcomb - Subdomain Permutation Generator
 
 USAGE:
-    subperm [OPTIONS] [SUBDOMAIN]
+    subcomb [OPTIONS] [SUBDOMAIN]
 
 OPTIONS:
     -i, --input FILE     Read subdomains from input file
@@ -28,18 +28,18 @@ OPTIONS:
 
 EXAMPLES:
     # Single subdomain
-    subperm sub.api.example.com
+    subcomb sub.api.example.com
 
     # Read from file
-    subperm -i subdomains.txt -o results.txt
+    subcomb -i subdomains.txt -o results.txt
 
     # Pipeline usage
-    echo "sub.api.example.com" | subperm
-    cat subdomains.txt | subperm -o results.txt
+    echo "sub.api.example.com" | subcomb
+    cat subdomains.txt | subcomb -o results.txt
 
     # Multiple formats
-    subperm -f json sub.api.example.com
-    subperm -f csv -i input.txt -o output.csv
+    subcomb -f json sub.api.example.com
+    subcomb -f csv -i input.txt -o output.csv
 
 FORMATS:
     plain  - One subdomain per line (default)
@@ -325,7 +325,7 @@ func main() {
 	config, args := ParseFlags()
 
 	if config.ShowVersion {
-		fmt.Printf("subperm version %s\n", version)
+		fmt.Printf("subcomb version %s\n", version)
 		return
 	}
 

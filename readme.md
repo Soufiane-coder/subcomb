@@ -1,4 +1,4 @@
-# SubPerm - Subdomain Permutation Generator
+# subcomb - Subdomain Permutation Generator
 
 [![Go Version](https://img.shields.io/badge/Go-1.19+-blue.svg)](https://golang.org/dl/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -22,22 +22,22 @@ A powerful and flexible command-line tool written in Go that generates all possi
 
 ```bash
 # Clone the repository
-git clone https://github.com/Soufiane-coder/subperm.git
-cd subperm
+git clone https://github.com/Soufiane-coder/subcomb.git
+cd subcomb
 
 # Build the binary
-go build -o subperm main.go
+go build -o subcomb main.go
 
 # Make it executable and install (optional)
-chmod +x subperm
-sudo mv subperm /usr/local/bin/
+chmod +x subcomb
+sudo mv subcomb /usr/local/bin/
 ```
 
 ### Direct Download
 
 ```bash
 # Download and install directly
-go install github.com/Soufiane-coder/subperm@latest
+go install github.com/Soufiane-coder/subcomb@latest
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ go install github.com/Soufiane-coder/subperm@latest
 
 ```bash
 # Generate permutations for a single subdomain
-subperm sub.api.example.com
+subcomb sub.api.example.com
 ```
 
 **Output:**
@@ -62,7 +62,7 @@ sub.api.example.com
 
 ```
 USAGE:
-    subperm [OPTIONS] [SUBDOMAIN]
+    subcomb [OPTIONS] [SUBDOMAIN]
 
 OPTIONS:
     -i, --input FILE     Read subdomains from input file
@@ -80,40 +80,40 @@ OPTIONS:
 
 ```bash
 # Read from file and write to file
-subperm -i subdomains.txt -o results.txt
+subcomb -i subdomains.txt -o results.txt
 
 # Verbose mode with file processing
-subperm -v -i input.txt -o output.txt
+subcomb -v -i input.txt -o output.txt
 ```
 
 #### Pipeline Operations
 
 ```bash
 # Pipeline from echo
-echo "sub.api.example.com" | subperm
+echo "sub.api.example.com" | subcomb
 
 # Pipeline from file
-cat subdomains.txt | subperm
+cat subdomains.txt | subcomb
 
 # Chain with other Unix tools
-subperm -i domains.txt | grep "api" | sort | uniq
+subcomb -i domains.txt | grep "api" | sort | uniq
 
 # Advanced pipeline usage
-cat targets.txt | subperm | httpx -silent | nuclei -t vulnerabilities/
+cat targets.txt | subcomb | httpx -silent | nuclei -t vulnerabilities/
 ```
 
 #### Output Formats
 
 ```bash
 # JSON output
-subperm -f json sub.api.example.com
+subcomb -f json sub.api.example.com
 # Output: ["example.com","sub.example.com","api.example.com","api.sub.example.com","sub.api.example.com"]
 
 # CSV output
-subperm -f csv -i input.txt -o results.csv
+subcomb -f csv -i input.txt -o results.csv
 
 # Plain text (default)
-subperm sub.api.example.com > results.txt
+subcomb sub.api.example.com > results.txt
 ```
 
 ## Input File Format
@@ -183,28 +183,28 @@ staging.sub.example.com
 ### Security Testing
 ```bash
 # Generate subdomains for reconnaissance
-subperm -i target-domains.txt | httpx -silent -title -tech-detect
+subcomb -i target-domains.txt | httpx -silent -title -tech-detect
 
 # Find live subdomains
-cat subdomains.txt | subperm | httprobe | tee live-domains.txt
+cat subdomains.txt | subcomb | httprobe | tee live-domains.txt
 ```
 
 ### Domain Enumeration
 ```bash
 # Comprehensive subdomain discovery
-subperm -i seeds.txt | dnsx -silent -a -resp | anew discovered-domains.txt
+subcomb -i seeds.txt | dnsx -silent -a -resp | anew discovered-domains.txt
 ```
 
 ### Integration with Other Tools
 ```bash
 # With Subfinder and Httpx
-subfinder -d example.com -silent | subperm | httpx -silent -mc 200
+subfinder -d example.com -silent | subcomb | httpx -silent -mc 200
 
 # With Amass
-amass enum -d example.com | subperm -f json > permutations.json
+amass enum -d example.com | subcomb -f json > permutations.json
 
 # With custom scripts
-subperm -i domains.txt | while read domain; do
+subcomb -i domains.txt | while read domain; do
     dig +short "$domain" | grep -E '^[0-9]'
 done
 ```
@@ -239,8 +239,8 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ```bash
 # Clone the repository
-git clone https://github.com/Soufiane-coder/subperm.git
-cd subperm
+git clone https://github.com/Soufiane-coder/subcomb.git
+cd subcomb
 
 # Install dependencies
 go mod tidy
@@ -249,7 +249,7 @@ go mod tidy
 go test ./...
 
 # Build
-go build -o subperm main.go
+go build -o subcomb main.go
 ```
 
 ## License
